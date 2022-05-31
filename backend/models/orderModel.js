@@ -19,7 +19,7 @@ const orderSchema = mongoose.Schema(
       },
       packagetype: {
         type: String,
-        enum: ['Silver', 'Gold', 'Platinum'],
+        enum: ['Non-Document','Silver', 'Gold', 'Platinum'],
         required: true,
         default: 'Silver',
       },

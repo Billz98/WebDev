@@ -9,15 +9,22 @@ import {useNavigate} from 'react-router-dom'
 const Home = () => {
   const history = useNavigate();
   
+  
     const[orders, setOrders] = useState([])
     
     const Auth = JSON.parse(localStorage.getItem("isAuthenticated"));
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    const isAdmin = userInfo.isAdmin
+    console.log(isAdmin)
     useEffect(() => {
       if (Auth == false) {
         history('/login');
       }
+      if (userInfo.isAdmin === true){
+          history('/admin')
+      }
     }, []);
-    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    
     const [cid, setCId] = useState(userInfo._id);
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState(false);

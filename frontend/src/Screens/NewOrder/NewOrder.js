@@ -71,7 +71,7 @@ const NewOrder = () => {
      
     }
   
-    const SubmitHandler = async (e) =>{
+    const SubmitHandler = (async (e) =>{
       costCalculate();
       e.preventDefault();
     if(pickupaddress == "" || pickupcity == "None" || deliveryaddress == "" || deliverycity == "None" || weight == "" || length == "" || height == "" || width == "" || packagetype == "None" ){
@@ -80,7 +80,21 @@ const NewOrder = () => {
     else{
       setMessage(null);
       
+      
       await costCalculate();
+      
+        const config = {
+          headers: {
+            "Content-type":"application/json"
+          },
+      };
+      const {data} = await axios.post('/api/orders/neworder', 
+      {pickupcity,pickupaddress,deliverycity,deliveryaddress,packagetype,cid,weight,length,height,width,cost},config)
+      console.log(data)
+      
+      history('/home')
+
+
 
 
         
@@ -88,7 +102,7 @@ const NewOrder = () => {
     }
     localStorage.setItem('order',JSON.stringify({cost,cid,pickupcity, pickupaddress, deliverycity, deliveryaddress, weight, length, height, width, packagetype}))
 
-  }
+  })
     
     
     return (

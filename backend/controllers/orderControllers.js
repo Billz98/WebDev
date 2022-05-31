@@ -79,4 +79,4 @@ const updateOrderStatus = asyncHandler(async (req, res) => {
 
 
 
-  module.exports = { newOrder, getOrder, updateOrderStatus};
+  module.exports = { newOrder, getOrder, updateOrderStatus, getAllOrders};
