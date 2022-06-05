@@ -1,0 +1,44 @@
+.containerTrackOrder{
+    margin-top: 100px;
+}
+.OrderDetailsHeader{
+    display: flex;
+    justify-content: space-around;
+}
+
+.ordertracking__container{
+
+}
+
+.stg_btn button{
+    padding: 0 10px 0 10px;
+}
+
+.stagesHeader{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.stageBT{
+    display: flex;
+    justify-content: center;
+}
+.stageBT button{
+    padding: 10px 35px 10px 35px;
+    border-radius: 10px;
+
+}
+
+.line{
+    height: 4px;
+    width: 10%;
+
+    background-color: black;
+    transform: translateY(20px);
+}
+.stagesHeader button{
+    padding: 10px 35px 10px 35px;
+    border-radius: 10px;
+}

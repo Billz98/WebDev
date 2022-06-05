@@ -120,7 +120,7 @@ const Home = () => {
                   </span>
               
               <div>
-                <Button href={`/order/${orders._id}` } disabled = {orders.status != "Booked"}>Update </Button>
+                
                 
                 <Button variant = 'danger' className = 'mx-2' disabled = {orders.status == "Cancelled"}onClick={() => cancelHandler(orders._id,orders.status)}>Cancel</Button>
                 

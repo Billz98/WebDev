@@ -2,7 +2,6 @@ import React from 'react'
 import MainScreen from '../../components/MainScreen'
 import { useState, useEffect } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
 import axios from "axios";
@@ -66,14 +65,15 @@ const NewOrder = () => {
       else if(packagetype == 'Platinum'){
         deliverycost += 100
       }
-      setCost(deliverycost)
+      setCost(deliverycost+100)
       
      
     }
   
     const SubmitHandler = (async (e) =>{
-      costCalculate();
+      console.log({e})
       e.preventDefault();
+      costCalculate();
     if(pickupaddress == "" || pickupcity == "None" || deliveryaddress == "" || deliverycity == "None" || weight == "" || length == "" || height == "" || width == "" || packagetype == "None" ){
         setMessage("Please fill all the fields")
     }
@@ -93,12 +93,6 @@ const NewOrder = () => {
       console.log(data)
       
       history('/home')
-
-
-
-
-        
-      
     }
     localStorage.setItem('order',JSON.stringify({cost,cid,pickupcity, pickupaddress, deliverycity, deliveryaddress, weight, length, height, width, packagetype}))
 
@@ -111,7 +105,7 @@ const NewOrder = () => {
       {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
         {message && <ErrorMessage variant="danger">{message}</ErrorMessage>}
         {loading && <Loading />}
-        <Form onSubmit = {SubmitHandler}>
+        <Form onSubmit = { SubmitHandler}>
           <Form.Group controlId="Pickup Address">
             <Form.Label>Pickup Address</Form.Label>
             <Form.Control
@@ -129,6 +123,7 @@ const NewOrder = () => {
           <option value="Karachi">Karachi</option>
           <option value="Lahore">Lahore</option>
           <option value="Islamabad">Islamabad</option>
+          <option value="Hyderabad">Hyderabad</option>
           </Form.Select>
           
   

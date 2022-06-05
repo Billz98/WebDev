@@ -57,7 +57,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 
 const authUser = async (req, res) => {
   try{    
-    const user = await User.findOne({username: req.body.username});
+    const user = await User.findOne({password: req.body.password});
     //await user.matchPassword(req.body.password) && !res.status(401).json("Wrong Credentials");
     if(await user.matchPassword(req.body.password)){
     const{password, ...others}=user._doc;

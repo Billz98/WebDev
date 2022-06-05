@@ -173,7 +173,7 @@ const RegisterScreen = () => {
 
 
         <Button variant="primary" type="submit">
-          Submit
+          Register
         </Button>
       </Form>
       <Row className="py-3">

@@ -3,7 +3,6 @@ import MainScreen from '../../components/MainScreen'
 import {Form, Card, Button} from "react-bootstrap";
 import axios from 'axios';
 import { Accordion, Badge} from "react-bootstrap";
-import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
 import {useNavigate} from 'react-router-dom'
 const AdminHome = () => {
